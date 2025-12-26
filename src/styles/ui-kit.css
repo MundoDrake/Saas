@@ -1,0 +1,343 @@
+/* ==========================================================================
+   UI Kit Components — Beyond UI Style
+   ========================================================================== */
+
+/* ========== Button Component ========== */
+
+.ui-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--theme-radius-md);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.ui-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Button Sizes */
+.ui-btn--sm {
+    padding: 6px 12px;
+    font-size: 13px;
+    height: 32px;
+}
+
+.ui-btn--md {
+    padding: 8px 16px;
+    font-size: 14px;
+    height: 40px;
+}
+
+.ui-btn--lg {
+    padding: 12px 24px;
+    font-size: 16px;
+    height: 48px;
+}
+
+/* Button Variants */
+.ui-btn--primary {
+    background: var(--theme-accent);
+    color: var(--theme-accent-text);
+}
+
+.ui-btn--primary:hover:not(:disabled) {
+    background: var(--theme-accent-hover);
+    box-shadow: 0 2px 8px rgba(255, 214, 0, 0.3);
+}
+
+.ui-btn--primary:active:not(:disabled) {
+    background: var(--theme-accent-active);
+}
+
+.ui-btn--secondary {
+    background: transparent;
+    color: var(--theme-text-primary);
+    border: 1px solid var(--theme-border);
+}
+
+.ui-btn--secondary:hover:not(:disabled) {
+    background: var(--theme-hover-bg);
+    border-color: var(--theme-border-strong);
+}
+
+.ui-btn--ghost {
+    background: transparent;
+    color: var(--theme-text-secondary);
+}
+
+.ui-btn--ghost:hover:not(:disabled) {
+    background: var(--theme-hover-bg);
+    color: var(--theme-text-primary);
+}
+
+.ui-btn--danger {
+    background: var(--theme-red);
+    color: white;
+}
+
+.ui-btn--danger:hover:not(:disabled) {
+    background: #dc2626;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Button Full Width */
+.ui-btn--full {
+    width: 100%;
+}
+
+/* Button Loading */
+.ui-btn--loading {
+    pointer-events: none;
+}
+
+.ui-btn-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ui-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========== Input Component ========== */
+
+.ui-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ui-input-wrapper.ui-input--full {
+    width: 100%;
+}
+
+.ui-input-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+}
+
+.ui-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ui-input {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--theme-text-primary);
+    background: var(--theme-bg-primary);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--theme-radius-md);
+    transition: all 0.15s ease;
+}
+
+.ui-input::placeholder {
+    color: var(--theme-text-placeholder);
+}
+
+.ui-input:focus {
+    outline: none;
+    border-color: var(--theme-accent);
+    box-shadow: 0 0 0 3px var(--theme-accent-bg);
+}
+
+.ui-input:disabled {
+    background: var(--theme-bg-secondary);
+    cursor: not-allowed;
+}
+
+/* Input Sizes */
+.ui-input--sm .ui-input {
+    padding: 6px 10px;
+    font-size: 13px;
+}
+
+.ui-input--lg .ui-input {
+    padding: 14px 18px;
+    font-size: 16px;
+}
+
+/* Input with Icons */
+.ui-input--icon-left .ui-input {
+    padding-left: 40px;
+}
+
+.ui-input--icon-right .ui-input {
+    padding-right: 40px;
+}
+
+.ui-input-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-text-muted);
+    font-size: 18px;
+}
+
+.ui-input-icon--left {
+    left: 12px;
+}
+
+.ui-input-icon--right {
+    right: 12px;
+}
+
+/* Input Error State */
+.ui-input--error .ui-input {
+    border-color: var(--theme-red);
+}
+
+.ui-input--error .ui-input:focus {
+    box-shadow: 0 0 0 3px var(--theme-red-bg);
+}
+
+.ui-input-error {
+    font-size: 13px;
+    color: var(--theme-red);
+}
+
+.ui-input-hint {
+    font-size: 13px;
+    color: var(--theme-text-muted);
+}
+
+/* ========== Card Component ========== */
+
+.ui-card {
+    background: var(--theme-bg-card);
+    border-radius: var(--theme-radius-lg);
+    overflow: hidden;
+}
+
+/* Card Variants */
+.ui-card--default {
+    border: 1px solid var(--theme-border);
+}
+
+.ui-card--outlined {
+    border: 1px solid var(--theme-border-strong);
+}
+
+.ui-card--elevated {
+    border: none;
+    box-shadow: var(--theme-shadow-md);
+}
+
+/* Card Padding */
+.ui-card--p-none .ui-card-body {
+    padding: 0;
+}
+
+.ui-card--p-sm .ui-card-body {
+    padding: 12px;
+}
+
+.ui-card--p-md .ui-card-body {
+    padding: 20px;
+}
+
+.ui-card--p-lg .ui-card-body {
+    padding: 28px;
+}
+
+.ui-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--theme-border);
+    font-weight: 600;
+    color: var(--theme-text-primary);
+}
+
+.ui-card-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--theme-border);
+    background: var(--theme-bg-secondary);
+}
+
+/* ========== Badge Component ========== */
+
+.ui-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    border-radius: var(--theme-radius-full);
+}
+
+/* Badge Sizes */
+.ui-badge--sm {
+    padding: 2px 8px;
+    font-size: 11px;
+}
+
+.ui-badge--md {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+/* Badge Variants */
+.ui-badge--default {
+    background: var(--theme-bg-tertiary);
+    color: var(--theme-text-secondary);
+}
+
+.ui-badge--primary {
+    background: var(--theme-accent);
+    color: var(--theme-accent-text);
+}
+
+.ui-badge--success {
+    background: var(--theme-green-bg);
+    color: var(--theme-green);
+}
+
+.ui-badge--warning {
+    background: var(--theme-orange-bg);
+    color: var(--theme-orange);
+}
+
+.ui-badge--danger {
+    background: var(--theme-red-bg);
+    color: var(--theme-red);
+}
+
+.ui-badge--info {
+    background: var(--theme-blue-bg);
+    color: var(--theme-blue);
+}
+
+/* Badge Dot */
+.ui-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.ui-badge-icon {
+    display: flex;
+    align-items: center;
+}

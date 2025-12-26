@@ -1,0 +1,412 @@
+/* --------------------------------------------------------------------------
+   Timer & Timesheet Styles
+   -------------------------------------------------------------------------- */
+
+/* Timesheet Page Wrapper */
+.timesheet-page {
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+/* Timesheet Page */
+.timesheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    flex-wrap: wrap;
+}
+
+/* Timer Control Card */
+.timer-control-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+}
+
+.timer-control-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+}
+
+.timer-control-time {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-green);
+}
+
+.timer-control-time.paused {
+    color: var(--color-orange);
+}
+
+.timer-control-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.timer-control-active {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    flex-wrap: wrap;
+}
+
+.timer-control-buttons {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+/* Time Entry List */
+.time-entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.time-entry-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-4);
+    background-color: var(--color-bg);
+    transition: background var(--transition-fast);
+}
+
+.time-entry-item:hover {
+    background-color: var(--color-bg-hover);
+}
+
+.time-entry-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.time-entry-indicator-stopped {
+    background-color: var(--color-blue);
+}
+
+.time-entry-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.time-entry-task {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.time-entry-project {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.time-entry-duration {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text);
+    flex-shrink: 0;
+}
+
+.time-entry-action {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    opacity: 0;
+}
+
+.time-entry-item:hover .time-entry-action {
+    opacity: 1;
+}
+
+.time-entry-action-danger:hover {
+    background-color: var(--color-red-bg);
+    color: var(--color-red);
+}
+
+/* Day Group */
+.time-entry-day {
+    margin-bottom: var(--spacing-4);
+}
+
+.time-entry-day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-2) 0;
+    margin-bottom: var(--spacing-2);
+}
+
+.time-entry-day-date {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.time-entry-day-total {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Timer Popup (global floating) */
+.timer-popup {
+    position: fixed;
+    bottom: var(--spacing-6);
+    right: var(--spacing-6);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-xl);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    min-width: 280px;
+    user-select: none;
+}
+
+.timer-popup-dragging {
+    cursor: grabbing;
+    opacity: 0.95;
+}
+
+.timer-popup-drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-muted);
+    cursor: grab;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.timer-popup-drag-handle:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text-secondary);
+}
+
+.timer-popup-dragging .timer-popup-drag-handle {
+    cursor: grabbing;
+    color: var(--color-primary);
+}
+
+.timer-popup-time {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-green);
+}
+
+.timer-popup-time.timer-popup-paused {
+    color: var(--color-orange);
+}
+
+.timer-popup-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.timer-popup-task {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.timer-popup-project {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.timer-popup-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.timer-popup-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.timer-popup-btn-play {
+    background: var(--color-green);
+    color: white;
+}
+
+.timer-popup-btn-play:hover {
+    background: var(--color-success-600);
+}
+
+.timer-popup-btn-pause {
+    background: var(--color-orange);
+    color: white;
+}
+
+.timer-popup-btn-pause:hover {
+    background: var(--color-warning-600);
+}
+
+.timer-popup-btn-stop {
+    background: var(--color-red);
+    color: white;
+}
+
+.timer-popup-btn-stop:hover:not(:disabled) {
+    background: var(--color-error-600);
+}
+
+.timer-popup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Danger button */
+.btn-danger {
+    background: var(--color-red);
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: var(--color-error-600);
+}
+
+/* Category Modal */
+.category-modal {
+    max-width: 440px;
+}
+
+.category-preview {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+}
+
+.category-preview-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    color: white;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+}
+
+.category-preview-icon {
+    font-size: 1.2em;
+}
+
+.emoji-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+    padding: var(--spacing-2);
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.emoji-option {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.emoji-option:hover {
+    background: var(--color-bg-hover);
+}
+
+.emoji-option.active {
+    background: var(--color-primary-bg);
+    border-color: var(--color-primary);
+}
+
+.color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+}
+
+.color-option {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.active {
+    border-color: var(--color-text);
+    box-shadow: 0 0 0 2px var(--color-bg);
+}
+
+/* Category settings button */
+.category-settings-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 4px;
+    opacity: 0.5;
+    transition: opacity var(--transition-fast);
+    vertical-align: middle;
+}
+
+.category-settings-btn:hover {
+    opacity: 1;
+}

@@ -1,0 +1,191 @@
+/* --------------------------------------------------------------------------
+   Templates Styles
+   -------------------------------------------------------------------------- */
+
+/* Templates Grid */
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-4);
+}
+
+/* Template Card */
+.template-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-4);
+    transition: border-color var(--transition-fast);
+}
+
+.template-card:hover {
+    border-color: var(--color-text-muted);
+}
+
+.template-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+}
+
+.template-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--color-purple-bg);
+    color: var(--color-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.template-actions {
+    display: flex;
+    gap: var(--spacing-1);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.template-card:hover .template-actions {
+    opacity: 1;
+}
+
+.template-action {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.template-action:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text);
+}
+
+.template-action-danger:hover {
+    background: var(--color-red-bg);
+    color: var(--color-red);
+}
+
+.template-name {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-1);
+}
+
+.template-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-3);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.template-meta {
+    display: flex;
+    gap: var(--spacing-4);
+}
+
+.template-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+/* Template Form - Tasks Section */
+.template-tasks-section {
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.template-tasks-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-4);
+}
+
+.template-task-add {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+}
+
+.template-tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.template-task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-md);
+}
+
+.template-task-drag {
+    color: var(--color-text-muted);
+    cursor: grab;
+    padding-top: var(--spacing-2);
+}
+
+.template-task-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.template-task-row {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.template-task-remove {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.template-task-remove:hover {
+    background: var(--color-red-bg);
+    color: var(--color-red);
+}
+
+/* Small form input */
+.form-input-sm {
+    padding: var(--spacing-2);
+    font-size: var(--font-size-sm);
+}
+
+/* Purple color variables fallback */
+:root {
+    --color-purple: #8b5cf6;
+    --color-purple-bg: rgba(139, 92, 246, 0.1);
+}
