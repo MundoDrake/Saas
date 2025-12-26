@@ -1,6 +1,0 @@
-node_modules
-dist
-dist-electron
-.DS_Store
-*.local
-.env
